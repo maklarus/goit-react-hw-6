@@ -12,40 +12,12 @@ export default function App() {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ];
 
-  const getInitialContacts = () => {
-    const savedContacts = localStorage.getItem('Contacts');
-    return savedContacts !== null ? JSON.parse(savedContacts) : initialData;
-  };
-
-  const [contacts, setContacts] = useState(getInitialContacts);
-  const [filter, setFilter] = useState('');
-
-  const handleFilter = event => {
-    setFilter(event.target.value);
-  };
-
-  const visibleContacts = contacts.filter(item =>
-    item.name.toLowerCase().includes(filter.toLowerCase())
-  );
-
-  const deleteHandler = id => {
-    setContacts(contacts.filter(item => item.id !== id));
-  };
-
-  const onAddContact = newObj => {
-    setContacts([...contacts, newObj]);
-  };
-
-  useEffect(() => {
-    localStorage.setItem('Contacts', JSON.stringify(contacts));
-  }, [contacts]);
-
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm onAddContact={onAddContact} />
-      <SearchBox handleFilter={handleFilter} />
-      <ContactList data={visibleContacts} onDelete={deleteHandler} />
+      <ContactForm />
+      <SearchBox />
+      <ContactList />
     </div>
   );
 }

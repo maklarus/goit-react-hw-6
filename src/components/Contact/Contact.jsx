@@ -1,15 +1,12 @@
 import css from './Contact.module.css';
 
-export default function Contact({ data: { id, name, number }, deleteHandler }) {
+export default function Contact({ contact }) {
   return (
     <div className={css.cardWrapper}>
       <div className={css.cardStyle}>
-        <p>{name}</p>
-        <p>{number}</p>
+        <p>{contact.name}</p>
+        <p>{contact.number}</p>
       </div>
-      <button className={css.deleteBtn} onClick={() => deleteHandler(id)}>
-        DELETE
-      </button>
     </div>
   );
 }

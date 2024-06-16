@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import css from './SearchBox.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeFilter, selectNameFilter } from '../../store/filtersSlice';
+import { changeFilter, selectNameFilter } from '../../redux/filtersSlice';
 
 export default function SearchBox() {
   const contactSearch = nanoid();
